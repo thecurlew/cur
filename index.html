@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Curl The Curlew</title>
+<style>
+@media (max-width: 768px) {
+    body {
+        text-align: center;
+    }
+    section {
+        text-align: center;
+        margin: 0 auto;
+        padding: 15px;
+    }
+    img {
+        width: 90% !important;
+        height: auto !important;
+        margin: 0 auto;
+    }
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    table {
+        width: 100%;
+        font-size: 0.8em;
+    }
+}
+
+        body {
+            font-family: 'Times New Roman', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #5CC6C6; /* Calipso background */
+            color: #333;
+        }
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #4B3621; /* Dark coffee background */
+            color: white;
+        }
+        header .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: white;
+            font-family: 'Times New Roman', serif;
+            margin-bottom: 10px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+        nav ul li a {
+    display: block;
+    text-align: center;
+    width: 100%;
+    max-width: 200px; /* Tamaño uniforme para cada botón */
+    background-color: #8B5E3C; /* Color café */
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px auto;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 15px;
+            background-color: #8B5E3C; /* Light coffee background */
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        nav ul li a:hover {
+            background-color: #D5A253;
+        }
+        .hero {
+            text-align: center;
+            padding: 50px 20px;
+        }
+        .wallet-section {
+            margin: 10px auto;
+            text-align: center;
+        }
+        section {
+            margin: 20px auto;
+            text-align: center;
+        }
+        footer {
+    background-color: #4B3621; /* Color café oscuro */
+    color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    
+/* General body styling */
+body {
+    font-family: 'Times New Roman', serif;
+    margin: 0;
+    padding: 0;
+    background-color: #5CC6C6;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+
+
+header .logo {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav ul li a {
+    display: block;
+    text-align: center;
+    width: 100%;
+    max-width: 200px; /* Tamaño uniforme para cada botón */
+    background-color: #8B5E3C; /* Color café */
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px auto;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    background-color: #8B5E3C;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #D5A253;
+}
+
+/* Hero section */
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+    color: white;
+}
+
+/* General section styling */
+section {
+    margin: 20px auto;
+    padding: 20px;
+    width: 90%;
+    text-align: center;
+}
+
+/* Responsive design for images and tables */
+img {
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #DDD;
+}
+
+table th {
+    background-color: #4B3621;
+    color: white;
+}
+
+/* Footer */
+footer {
+    background-color: #4B3621;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero h1 {
+        font-size: 2em;
+    }
+
+    .hero p {
+        font-size: 1em;
+    }
+
+    table {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 768px) { #roadmap div { grid-template-columns: repeat(1, 1fr); } } @media (max-width: 768px) { #buy-section div button { display: block; width: 100%; margin: 10px 0; } } @media (max-width: 768px) { #buy-section div { display: flex; flex-direction: column; align-items: center; gap: 10px; } #buy-section div button { width: auto; margin: 0; } } @media (max-width: 768px) { #buy-section div { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 15px; } #buy-section div button { width: 80%; max-width: 300px; margin: 0 auto; text-align: center; } } </style>
+<style>
+@media (max-width: 768px) {
+    body {
+        text-align: center;
+    }
+    section {
+        text-align: center;
+        margin: 0 auto;
+        padding: 15px;
+    }
+    img {
+        width: 90% !important;
+        height: auto !important;
+        margin: 0 auto;
+    }
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    table {
+        width: 100%;
+        font-size: 0.8em;
+    }
+}
+
+        /* Mejoras para dispositivos móviles */
+        @media (max-width: 768px) {
+    img {
+        width: 90% !important;
+        height: auto !important;
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 5px;
+    }
+    .hero h1 {
+        font-size: 2em;
+    }
+    .hero p {
+        font-size: 1.1em;
+    }
+}
+            
+            nav ul {
+                flex-wrap: nowrap;
+                gap: 10px;
+            }
+            nav ul li a {
+    display: block;
+    text-align: center;
+    width: 100%;
+    max-width: 200px; /* Tamaño uniforme para cada botón */
+    background-color: #8B5E3C; /* Color café */
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px auto;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+                font-size: 0.9em;
+                padding: 8px 10px;
+            }
+            .hero h1 {
+                font-size: 1.8em;
+            }
+            .hero p {
+                font-size: 1em;
+                text-align: justify;
+            }
+            section {
+                width: 90%;
+            }
+            section table {
+                font-size: 0.9em;
+            }
+            footer div a {
+                font-size: 0.8em;
+            }
+        }
+    
+/* General body styling */
+body {
+    font-family: 'Times New Roman', serif;
+    margin: 0;
+    padding: 0;
+    background-color: #5CC6C6;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+
+
+header .logo {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav ul li a {
+    display: block;
+    text-align: center;
+    width: 100%;
+    max-width: 200px; /* Tamaño uniforme para cada botón */
+    background-color: #8B5E3C; /* Color café */
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px auto;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    background-color: #8B5E3C;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #D5A253;
+}
+
+/* Hero section */
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+    color: white;
+}
+
+/* General section styling */
+section {
+    margin: 20px auto;
+    padding: 20px;
+    width: 90%;
+    text-align: center;
+}
+
+/* Responsive design for images and tables */
+img {
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #DDD;
+}
+
+table th {
+    background-color: #4B3621;
+    color: white;
+}
+
+/* Footer */
+footer {
+    background-color: #4B3621;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero h1 {
+        font-size: 2em;
+    }
+
+    .hero p {
+        font-size: 1em;
+    }
+
+    table {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 768px) { #roadmap div { grid-template-columns: repeat(1, 1fr); } } @media (max-width: 768px) { #buy-section div button { display: block; width: 100%; margin: 10px 0; } } @media (max-width: 768px) { #buy-section div { display: flex; flex-direction: column; align-items: center; gap: 10px; } #buy-section div button { width: auto; margin: 0; } } @media (max-width: 768px) { #buy-section div { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 15px; } #buy-section div button { width: 80%; max-width: 300px; margin: 0 auto; text-align: center; } } </style>
+<style>
+#timer-container {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: #4B3621;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-family: 'Times New Roman', serif;
+    font-size: 1em;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+</style><link href="style.css" rel="stylesheet"/></head>
+<body>
+<header>
+<div class="logo" style="font-family: 'Times New Roman', serif; font-size: 2.5em;">Curl The Curlew</div>
+<nav>
+<ul>
+<li><a href="#buy-section">Buy Token</a></li>
+<li><a href="#tokenomics">Tokenomics</a></li>
+<li><a href="#roadmap">Roadmap</a></li>
+<li><a href="#faq">FAQ</a></li>
+</ul>
+</nav>
+</header>
+<div class="hero">
+<div id="timer-container" style="position: relative; margin: 20px auto; text-align: center; background-color: darkgreen; color: white; padding: 15px; border-radius: 10px; font-size: 1.5em; width: fit-content;">
+    <span id="timer-description">Time left for the Grand Launch: </span>
+    <span id="timer">00:00:00</span>
+</div>
+<h1 style="color: black; font-size: 2.5em; font-family: 'Times New Roman', serif;">Curlew - A symbol of beauty and resilience</h1>
+<p style="color: black; font-size: 1.2em; text-align: justify; font-family: 'Times New Roman', serif;">
+Hi, I am Noah, an 11-year-old boy from Europe.
+Since I was young, I have been deeply passionate about birds and animals, inspired by my father, a dedicated advocate for flora and fauna. In 2024, I learned from him that the slender-billed curlew was officially declared the first extinct bird. This elegant creature, last seen in Morocco in 1995, remains alive in my heart.
+
+To honor its memory, and with my dad’s support, I created a memecoin called "Curl the Curlew."
+This project is not only a tribute to the curlew but also a call to action to inspire people to protect birds and the environment. I imagine Curl soaring through the skies alongside his friend, the dodo, as symbols of environmental awareness. Together, they remind us of the importance of caring for our planet.
+
+With your help, we can ensure that Curl the Curlew not only lives on in our hearts but also inspires real actions to protect nature. Together, we can transform the curlew into a legendary symbol of hope and change.
+</p>
+<section id="gallery" style="padding: 20px; border-radius: 10px; margin: 20px auto; width: 90%; color: white; text-align: center; ">
+<div style="display: flex; flex-direction: column; gap: 15px; justify-content: center; align-items: center; overflow-x: auto;">
+<img alt="cur" src="images/cur.jpeg" style="display: block; margin: 0 auto; width: 400px; height: auto;"/>
+<img alt="curl" src="images/curl.jpeg" style="display: block; margin: 0 auto; width: 400px; height: auto;"/> </div>
+</section>
+<section id="buy-section" style="background-color: #4B3621; padding: 20px; border-radius: 10px; margin: 20px auto; width: 70%; color: white; text-align: center; ">
+<h2 style="margin-bottom: 15px; color: white;">Buy Token</h2>
+<div style="margin-top: 20px;">
+<button onclick="window.open('https://app.uniswap.org/', '_blank')" style="padding: 10px 20px; background-color: #D5A253; color: white; border: none; border-radius: 5px; cursor: pointer;">Buy</button>
+<button onclick="navigator.clipboard.writeText('0x123456789abcdef')" style="padding: 10px 20px; background-color: #D5A253; color: white; border: none; border-radius: 5px; cursor: pointer;">Copy Contract</button>
+</div>
+<div style="margin-top: 20px;">
+<p style="margin-top: 10px;">Token Price: <span id="token-price">Fetching...</span></p>
+</div>
+</section>
+
+<script>
+    function updateTimer() {
+        const targetDate = new Date('2024-12-23T00:00:00').getTime();
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        if (distance > 0) {
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            document.getElementById("timer").textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        } else {
+            document.getElementById("timer").textContent = "The Grand Launch is Here!";
+        }
+    }
+    setInterval(updateTimer, 1000);
+    updateTimer();
+</script>
+</script>
+<section id="gallery" style="padding: 20px; border-radius: 10px; margin: 20px auto; width: 90%; color: white; text-align: center; ">
+<div style="display: flex; flex-direction: column; gap: 15px; justify-content: center; align-items: center; overflow-x: auto;">
+<img alt="curle" src="images/curle.jpeg" style="display: block; margin: 0 auto; width: 400px; height: auto;"/>
+<img alt="curlew" src="images/curlew.jpeg" style="display: block; margin: 0 auto; width: 400px; height: auto;"/> </div>
+</section>
+<section id="tokenomics" style="display: flex; justify-content: center; margin: 20px auto;">
+<div style="background-color: #4B3621; padding: 30px; border-radius: 10px; width: 80%; text-align: center;  margin-top: 20px;">
+<h2 style="background-color: #4B3621; color: white; text-align: center; margin-bottom: 20px; padding: 10px; border-radius: 5px;">Tokenomics</h2>
+<table style="width: 100%; border-collapse: collapse; background-color: #3A2E25; color: white; font-size: 16px; line-height: 1.8; text-align: center; border-radius: 10px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); overflow: hidden;">
+<tr style="background-color: #2E1D13; color: white;">
+<th style="padding: 10px; text-align: center;">Attribute</th>
+<th style="padding: 10px; text-align: center;">Details</th>
+</tr>
+<tr style="background-color: #4B3621;">
+<td style="padding: 10px;">Token Name</td>
+<td style="padding: 10px;">CURLEW</td>
+</tr>
+<tr style="background-color: #4B3621;">
+<td style="padding: 10px;">Symbol</td>
+<td style="padding: 10px;">CURLEW</td>
+</tr>
+<tr style="background-color: #4B3621;">
+<td style="padding: 10px;">Blockchain</td>
+<td style="padding: 10px;">ETHEREUM (ETH)</td>
+</tr>
+<tr style="background-color: #4B3621;">
+<td style="padding: 10px;">Token Type</td>
+<td style="padding: 10px;">ERC-20</td>
+</tr>
+<tr style="background-color: #4B3621;">
+<td style="padding: 10px;">Total Supply</td>
+<td style="padding: 10px;">50,000,000,000 CURLEW</td>
+</tr>
+</table>
+<h3 style="color: white; margin-top: 20px;">Distribution</h3>
+<table style="width: 100%; border-collapse: collapse; background-color: #3A2E25; color: white; font-size: 16px; line-height: 1.8; text-align: center; border-radius: 10px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); overflow: hidden;">
+<tr style="background-color: #2E1D13; color: white;">
+<th style="padding: 10px; text-align: center;">Category</th>
+<th style="padding: 10px; text-align: center;">Allocation</th>
+<th style="padding: 10px; text-align: center;">Purpose</th>
+</tr>
+<tr style="background-color: #4B3621;">
+<td style="padding: 10px;">Liquidity Pool (50%)</td>
+<td style="padding: 10px;">25,000,000,000 CURLEW</td>
+<td style="padding: 10px;">Stability and liquidity for decentralized exchange platforms like PancakeSwap.</td>
+</tr>
+<tr style="background-color: #4B3621;">
+<td style="padding: 10px;">Community (30%)</td>
+<td style="padding: 10px;">15,000,000,000 CURLEW</td>
+<td style="padding: 10px;">Incentives, rewards for holders, contests, and community activities.</td>
+</tr>
+<tr style="background-color: #4B3621;">
+<td style="padding: 10px;">Marketing (20%)</td>
+<td style="padding: 10px;">10,000,000,000 CURLEW</td>
+<td style="padding: 10px;">Funding advertising campaigns, influencer collaborations, events, and strategic expansions.</td>
+</tr>
+</table>
+</div>
+</section>
+<section id="gallery" style="padding: 20px; border-radius: 10px; margin: 20px auto; width: 90%; color: white; text-align: center; ">
+<div style="display: flex; flex-direction: column; gap: 15px; justify-content: center; align-items: center; overflow-x: auto;">
+<img alt="cu" src="images/cu.jpeg" style="display: block; margin: 0 auto; width: 400px; height: auto;"/>
+<img alt="curlews" src="images/curlews.jpeg" style="display: block; margin: 0 auto; width: 400px; height: auto;"/> </div>
+</section>
+<section id="roadmap" style="background-color: #5CC6C6; padding: 40px; border-radius: 10px; margin: 40px auto; width: 90%;">
+<h2 style="background-color: #4B3621; color: white; text-align: center; margin-bottom: 20px; padding: 10px; border-radius: 5px;">Roadmap</h2>
+<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; color: #333;">
+<div style="background-color: #4B3621; color: white; padding: 20px; border-radius: 10px; ">
+<h3 style="color: #D5A253;">Phase 1: Genesis</h3>
+<p>Launch the official website and token. Promote awareness about the project through social media campaigns, focusing on environmental conservation.</p>
+</div>
+<div style="background-color: #4B3621; color: white; padding: 20px; border-radius: 10px; ">
+<h3 style="color: #D5A253;">Phase 2: Community</h3>
+<p>Build a strong community on platforms like Telegram and Twitter. Organize eco-friendly events, contests, and staking rewards for members.</p>
+</div>
+<div style="background-color: #4B3621; color: white; padding: 20px; border-radius: 10px; ">
+<h3 style="color: #D5A253;">Phase 3: Expansion</h3>
+<p>
+
+Include the token on exchanges, starting with decentralized platforms like PancakeSwap, and implement environmentally-focused partnerships with conservation projects and initiatives to improve the quality of life for birds.</p>
+</div>
+<div style="background-color: #4B3621; color: white; padding: 20px; border-radius: 10px; ">
+<h3 style="color: #D5A253;">Phase 4: Legacy</h3>
+<p>Establish sustainable initiatives for wildlife and environmental conservation, funded through symbolic revenues and partnerships such as The Royal Society for the Protection of Birds (RSPB).</p>
+</div>
+</div>
+</section>
+<section id="gallery" style="padding: 20px; border-radius: 10px; margin: 20px auto; width: 90%; color: white; text-align: center; ">
+<div style="display: flex; flex-direction: column; gap: 15px; justify-content: center; align-items: center; overflow-x: auto;">
+<img alt="curleee" src="images/curleee.jpeg" style="display: block; margin: 0 auto; width: 400px; height: auto;"/>
+<img alt="curleww" src="images/curleww.jpeg" style="display: block; margin: 0 auto; width: 400px; height: auto;"/> </div>
+</section>
+<section id="faq">
+<h2 style="background-color: #4B3621; color: white; text-align: center; margin-bottom: 20px; padding: 10px; border-radius: 5px; width: 90%; margin: 0 auto;">FAQ</h2>
+<div style="max-width: 800px; margin: auto; padding: 20px; background-color: #3A2E25; border-radius: 10px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); color: white; font-family: 'Times New Roman', serif;">
+<div style="margin-bottom: 30px; padding: 15px; border-left: 5px solid #2B1E17; background-color: #4b3621; border-radius: 10px;">
+<h3 style="color: #D5A253; margin-bottom: 10px;">What is Curl The Curlew (CURLEW)?</h3>
+<p>CURLEW is a memecoin inspired by the Slender-Billed Curlew, a bird declared extinct, to raise awareness about environmental conservation while providing an exciting investment opportunity.</p>
+</div>
+<div style="margin-bottom: 30px; padding: 15px; border-left: 5px solid #2B1E17; background-color: #4b3621; border-radius: 10px;">
+<h3 style="color: #D5A253; margin-bottom: 10px;">Is CURLEW a safe investment?</h3>
+<p>While CURLEW is a legitimate project aimed at combining environmental awareness with blockchain technology, it is important to remember that all cryptocurrency investments carry risks. Do your research before investing.</p>
+</div>
+<div style="margin-bottom: 30px; padding: 15px; border-left: 5px solid #2B1E17; background-color: #4b3621; border-radius: 10px;">
+<h3 style="color: #D5A253; margin-bottom: 10px;">How can I buy the token?</h3>
+<p>Click on the "Buy Token" button to get started!</p>
+</div>
+<div style="margin-bottom: 30px; padding: 15px; border-left: 5px solid #2B1E17; background-color: #4b3621; border-radius: 10px;">
+<h3 style="color: #D5A253; margin-bottom: 10px;">What are the benefits of holding CURLEW?</h3>
+<p>Holders may participate in exclusive rewards, community events, and future features like NFTs. Additionally, by holding CURLEW, you contribute to environmental efforts.</p>
+</div>
+<div style="margin-bottom: 30px; padding: 15px; border-left: 5px solid #2B1E17; background-color: #4b3621; border-radius: 10px;">
+<h3 style="color: #D5A253; margin-bottom: 10px;">Where can I track the token's performance?</h3>
+<p>You can track CURLEW's price and performance on platforms like CoinMarketCap, CoinGecko, or directly through our website.</p>
+</div>
+<div style="padding: 15px; border-left: 5px solid #2B1E17; background-color: #4b3621; border-radius: 10px;">
+<h3 style="color: #D5A253; margin-bottom: 10px;">Can I suggest partnerships or initiatives?</h3>
+<p>Absolutely! We encourage community-driven ideas. Feel free to reach out to us on our social media channels.</p>
+</div>
+</div>
+</section>
+<footer style="background-color: #4B3621; color: white; text-align: center; padding: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+<div style="background-color: #4B3621; color: white; padding: 20px; text-align: center;">
+<p>© 2024 Curl The Curlew. All rights reserved.</p>
+<div style="margin-top: 10px;">
+<a href="https://x.com/CurlTheCurlew" style="color: white; margin: 0 10px;" target="_blank">Follow us on X</a>
+<a href="https://t.me/CurlTheCurlew" style="color: white; margin: 0 10px;" target="_blank">Join Telegram</a>
+</div></div></footer>
+</div>
+<script>
+    function updateTimer() {
+        const targetDate = new Date('2024-12-23T00:00:00').getTime();
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        if (distance > 0) {
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            document.getElementById("timer").textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        } else {
+            document.getElementById("timer").textContent = "The Grand Launch is Here!";
+        }
+    }
+    setInterval(updateTimer, 1000);
+    updateTimer();
+</script>
+
+</script></body>
+</html>
